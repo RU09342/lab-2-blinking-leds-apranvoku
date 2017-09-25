@@ -14,9 +14,10 @@ By using the line PM5CTL0 = ~LOCKLPM5, the default high impedance on the board i
 This high impedance serves to get rid of any cross currents, but is turned off later.
 
 While(1) keeps the program in the loop forever.
-if(!(PXIN & BITX)) ss the if condition which will check if a button is depressed. 
+if(!(PXIN & BITX)) is the if condition which will check if a button is depressed. 
 If a button is depressed, the bit changes from 1 to 0, so a not condition is needed.
-PXOUT |= BITX; set that bit to 1 every time it detects a button press. 
+PXOUT |= BITX; sets that bit to 1 every time it detects a button press. 
+Else, it will be cleared, turning the LED off.
 
 Board specific changes!
 In the MPS430g2553 and the MSP430f5529 i must be declared as a volatile unsigned int.
