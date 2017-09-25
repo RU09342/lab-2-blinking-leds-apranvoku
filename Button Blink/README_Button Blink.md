@@ -2,7 +2,7 @@
 ## Author: Ardit Pranvoku, Thai Nghiem.
 
 To run this code, simply import it into code composer, build, then debug.
-Blinks an LED on the board at a half duty cycle, as long as a button is being pressed.
+Turns on an LED as long as a button is being pressed.
 Any board specific pins and pits will be substituted with the variable X.
 The watchdog timer must be stopped with the line WDTCTL = WDTPW + WDTHOLD or WDTCTL = WDTPW | WDTHOLD.
 Else, the processor will reset.
@@ -14,11 +14,9 @@ By using the line PM5CTL0 = ~LOCKLPM5, the default high impedance on the board i
 This high impedance serves to get rid of any cross currents, but is turned off later.
 
 While(1) keeps the program in the loop forever.
-if(!(PXIN & BITX)) Is the if condition which will check if a button is depressed. 
+if(!(PXIN & BITX)) ss the if condition which will check if a button is depressed. 
 If a button is depressed, the bit changes from 1 to 0, so a not condition is needed.
-PXOUT ^= BITX; flips that bit every time it runs. 
-Will continously run as long as the button is pressed.
-__delay_cycles(100000) delays the next toggle by .1 seconds.
+PXOUT |= BITX; set that bit to 1 every time it detects a button press. 
 
 Board specific changes!
 In the MPS430g2553 and the MSP430f5529 i must be declared as a volatile unsigned int.
