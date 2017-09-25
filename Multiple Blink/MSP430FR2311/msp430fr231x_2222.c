@@ -85,10 +85,10 @@ int main(void)
 	
 			P1OUT ^= BIT0;                      // Toggle P1.0 using exclusive-OR
 		__delay_cycles(10000);             // Delay for 100000*(1/MCLK)=0.1s
-		j++;
-		if (j % 6 == 0) 
+		j++;								//increment j
+		if (j % 6 == 0)						//If j is divisible by 6, toggle 2.0
 		{
-			P2OUT ^= BIT0;                      // Toggle P9.7 using exclusive-OR
+			P2OUT ^= BIT0;                      // Toggle P2.0 using exclusive-OR
 		}
 	}
 }

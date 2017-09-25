@@ -1,4 +1,4 @@
-# Read Me for Math.c
+# Read Me for Multiple Blink
 ## Author: Ardit Pranvoku, Thai Nghiem.
 To run this code, simply import the project folder into code composer, build, then debug.
 Blinks 2 LEDs on the board at a half duty cycles.

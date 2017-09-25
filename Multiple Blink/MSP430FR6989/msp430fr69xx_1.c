@@ -79,12 +79,14 @@ int main(void)
                                             // to activate previously configured port settings
 
     while(1)
-    {
-        P1OUT ^= BIT0;                      // Toggle P1.0 using exclusive-OR
-        __delay_cycles(100000);             // Delay for 100000*(1/MCLK)=0.1s
-        if (P1OUT & BIT0){
-                P9OUT ^= BIT7;                      // Toggle P9.7 using exclusive-OR
-                __delay_cycles(50000);             // Delay for 50000*(1/MCLK)=0.05s
-        }
-    }
+	{
+		volatile unsigned int j;
+
+		P1OUT ^= BIT0;                      // Toggle P1.0 using exclusive-OR
+		__delay_cycles(10000);             // Delay for 10000*(1/MCLK)=0.01s
+		j++;								//increment j
+		if (j % 6 == 0) {					//if j is divisible by 6, toggle 9.7
+			P9OUT ^= BIT7;                      // Toggle P9.7 using exclusive-OR
+		}
+	}
 }

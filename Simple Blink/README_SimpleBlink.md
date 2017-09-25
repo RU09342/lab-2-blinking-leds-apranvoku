@@ -1,4 +1,4 @@
-# Read Me for Math.c
+# Read Me for Simple Blink
 ## Author: Ardit Pranvoku, Thai Nghiem.
 To run this code, simply import it into code composer, build, then debug.
 Blinks an LED on the board at a half duty cycle, no user input is needed.

@@ -84,8 +84,8 @@ int main(void)
     i = 10000;                              // Delay
     do (i--);
     while (i != 0);
-    j++;
-        if(j % 6 == 0)
+    j++;						//increment j
+        if(j % 6 == 0)					//if j is divisible by 6, run this code.
             {
                 P1OUT ^= BIT6;                      // Toggle P1.6 using exclusive-OR
             }

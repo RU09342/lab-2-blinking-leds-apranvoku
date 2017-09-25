@@ -1,4 +1,4 @@
-# Read Me for Math.c
+# Read Me for Button Blink
 ## Author: Ardit Pranvoku, Thai Nghiem.
 
 To run this code, simply import it into code composer, build, then debug.
