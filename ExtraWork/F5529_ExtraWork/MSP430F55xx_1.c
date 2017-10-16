@@ -1,22 +1,6 @@
-
 //******************************************************************************
-//  MSP430FR5x9x Demo - Toggle P1.0 using software
-//
-//  Description: Toggle P1.0 using software.
-//  ACLK = n/a, MCLK = SMCLK = default DCO
-//
-//           MSP430FR5994
-//         ---------------
-//     /|\|               |
-//      | |               |
-//      --|RST            |
-//        |               |
-//        |           P1.0|-->LED
-//
-//   William Goh
-//   Texas Instruments Inc.
-//   October 2015
-//   Built with IAR Embedded Workbench V6.30 & Code Composer Studio V6.1
+//   Ardit Pranvoku
+//   Built with CCSv4 and IAR Embedded Workbench Version: 4.21
 //******************************************************************************
 #include <msp430.h>
 
