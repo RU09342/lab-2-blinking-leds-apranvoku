@@ -1,42 +1,17 @@
 # Off Board Blink
-Now that we have the whole blinking LED out of the way,
- why don't we try making things a little more convenient by taking the G2553 off the development board and into a breadboard.
- In addition to the software, your README needs to also contain a picture of your circuit with at least 2 LEDs blinking all on a breadboard an without a development board. 
-This means that you will need:
-* Proper power being supplied to the processor
-* Proper Reset Circuitry 
-* Proper Bypass and Bulk Capacitors as needed
+##Author: Ardit Pranvoku  
 
+To run this code, simply import the project folder into code composer, build, then debug.
+Blinks 2 LEDs on the board at a half duty cycles.
+Any board specific pins and pits will be substituted with the variable X.
+The watchdog timer must be stopped with the line WDTCTL = WDTPW + WDTHOLD or WDTCTL = WDTPW | WDTHOLD.
+Else, the processor will reset.
 
-Please be advised that you can easily damage or destroy one of the pins on the MSP430 by applying the wrong voltage or attempting to draw too much current from it.
- Really check your design before you power up to ensure you do not need request another processor.
+The desired button pin and bit must be to 0 to configure it to be an input.
+Also,  PXREN |= BITX; must be used to enable the pullup resistor for that button.     
+By using the line PM5CTL0 = ~LOCKLPM5, the default high impedance on the board is disabled.
+This high impedance serves to get rid of any cross currents, but is turned off later.
 
-## "Do I need to use a power supply to power this thing?
-"
-In the beginning part of the exercise, I would say that you can use the 5V/3.3V rails built into the development board by running wires.
- However, I would recommend looking into how to supply the processor from something like a battery or the power supply. You might want to look into different types of regulators. 
-For example, your circuits may be powered off of a battery that is only 1.8V, or on a system that can only supply you with 13V.
-
-## "What about the buttons and resistors and LEDS?
-"
-You remember those parts bins in the back of the teaching labs? They contain most everything you will need to do this portion of the lab. 
-You should really make a effort to try and replicate what is on those development boards on the breadboard so you can begin to see what is needed to design with a microcontroller. 
-Mess around with different color LEDS and see if they behave the same as the simple Red LEDs.
-
-
-# YOU NEED TO CREATE THE FOLLOWING FOLDER
-* MSP430G2553
-
-## Extra Work
-Once you get to this point, you are pretty much set in terms of GPIO mastery getting the LEDs to blink,
- but there are some more exploratory tasks that you can do.
-
-### Off-Board Programming 
-Do we need to keep re-inserting the MSP into the development board to program it,
- or is there some way to keep the chip in the circuit? For starters, try to connect the header which connects the debugger and emulator (that parts that is really dense in parts)
- to your chip on your board. You will need to look at the datasheets for the MSP430G2553 and the Launchpad itself to see where and how to connect to the programmer.
- Next, you should really look at using the JTAG connector that is also available on your board.
-
-### UART/Button Control
-Remember that stuff you did a few parts ago?
- Can you actually get all of that working again off of the development board? Can you control which lights are on, the speed they blink at, etc.
+In the code, a button is set as an input. That button is then polled, and if it's pressed,
+the processor will toggle a pin on the board. A wire can be run from the pin to 2 LEDs with a 1k resistor in front 
+in series to power them.

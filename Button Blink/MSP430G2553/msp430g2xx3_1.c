@@ -15,16 +15,15 @@ int main(void)
 
   for (;;)
   {
-	  volatile unsigned int i;
+	  volatile unsigned int k;
       if(!(P1IN & BIT3))
       {
           P1OUT ^= BIT0;                      // Toggle P1.0 using exclusive-OR
-		  i = 50000;                              // Delay
-		  do (i--);
-		  while (i != 0);
+		  k = 10000;                              // Delay
+		  do (k--);
+		  while (k != 0);
       }
       else{
           P1OUT &= ~BIT0;                     // Clear P1.0 using exclusive-OR
   }
-}
 }

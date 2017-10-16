@@ -1,5 +1,6 @@
 # Read Me for Multiple Blink
 ## Author: Ardit Pranvoku, Thai Nghiem.
+
 To run this code, simply import the project folder into code composer, build, then debug.
 Blinks 2 LEDs on the board at a half duty cycles.
 Any board specific pins and pits will be substituted with the variable X.
